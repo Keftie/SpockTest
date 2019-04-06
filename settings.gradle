@@ -1,0 +1,3 @@
+rootProject.name = 'spocktest'
+include 'Chapter 01'
+findProject(':Chapter 01')?.name = 'chapter01'
