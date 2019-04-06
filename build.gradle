@@ -2,26 +2,32 @@ plugins {
     id 'idea'
     id 'eclipse'
     id 'org.sonarqube' version '2.7'
-    // id 'jacoco'
+    id 'jacoco'
 }
 
 group 'nl.kevin'
 version '1.0-SNAPSHOT'
 
-def sonarQubeName = 'SpockTest'
+ext {
+    sonarProjectName = project.name
+    sonarProjectKey = project.name
+    jacocoDestinationFiles = ["${buildDir}/jacoco/test.exec"]
+    jacocoExclusions = ['**/Main*']
+}
 
 sonarqube {
     properties {
-        // property "sonar.jacoco.reportPath", "${project.buildDir}/jacoco/testSpock.exec"
-        property "sonar.projectKey", sonarQubeName
-        property "sonar.projectName", project.name
+        property "sonar.projectKey", sonarProjectKey
+        property "sonar.projectName", sonarProjectName
         property "sonar.projectVersion", project.version
         property "sonar.login", "admin"
         property "sonar.password", "admin"
         property "sonar.host.url", "http://localhost:9000"
         // property "sonar.language", "java"
         property "sonar.sourceEncoding", "UTF-8"
-        // property "sonar.java.coveragePlugin", "jacoco"
+        //property "sonar.java.coveragePlugin", "jacoco"
+        //property "sonar.jacoco.reportPaths", jacocoDestinationFiles
+        //property "sonar.jacoco.exclusions", jacocoExclusions
         property "sonar.scm.provider", "git"
     }
 }
