@@ -1,3 +1,4 @@
 rootProject.name = 'spocktest'
-include 'Chapter 01'
+include 'Chapter 01', 'Chapter 02'
 findProject(':Chapter 01')?.name = 'chapter01'
+findProject(':Chapter 02')?.name = 'chapter02'
