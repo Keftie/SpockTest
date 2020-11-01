@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'groovy'
+}
+
+group 'nl.kevin'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.7'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.spockframework', name: 'spock-core', version: '1.0-groovy-2.4'
+    testCompile group: 'cglib', name: 'cglib-nodep', version: '3.1'
+    testCompile group: 'org.objenesis', name: 'objenesis', version: '2.1'
+    testCompile(group: 'com.athaydes', name: 'spock-reports', version: '1.2.12') {
+        transitive = false
+    }
+    testCompile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.13'
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.13'
+    testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+}
